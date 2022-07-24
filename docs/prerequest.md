@@ -1,0 +1,17 @@
+## 大纲
+1. 开发环境
+   - git
+   - cmake
+   - gcc
+   - clion/vscode/atom
+   - postman
+   - mysql/navicat
+   - docker
+2. 常用知识
+    - C++
+    - STL
+    - Cmake
+3. 实战
+   - 设计模式
+     - 单例模式
+     - 工厂模式
