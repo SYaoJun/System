@@ -11,7 +11,7 @@
 - src
 - docs
 - others
-### CMakelists.txt
+### CMakeLists.txt
 - 类似于maven，用来管理源文件和依赖。
 - xxx.so和xxx.a
 - 在链接的时候，把这些依赖的文件跟当前的文件，合并到一起。

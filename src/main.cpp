@@ -4,8 +4,9 @@
 #include "Benchi.h"
 #include "BenchiFactory.h"
 #include "BaomaFactory.h"
+#include <vector>
 
-
+using namespace std;
 int main() {
 //    auto *student = new Student(18, "yaojun");
 //    // 如果没接受返回值，会warning
@@ -33,7 +34,20 @@ int main() {
 
 
     // 用宝马车
-    Car *x = (new BaomaFactory)->getCar();
-    std::cout<<x->get_name()<<std::endl;
+//    Car *x = (new BaomaFactory)->getCar();
+//    std::cout<<x->get_name()<<std::endl;
+    vector<int> t{1,2,3,2,2,9};
+    int res = -1;
+    for(auto x: t){
+        if(res == -1) res = x;
+         // 10
+         // 01
+         // 11
+         // 11
+         // 11
+         // 101
+        else res &= x;
+    }
+    cout<<res<<endl;
     return 0;
 }
