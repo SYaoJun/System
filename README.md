@@ -2,10 +2,10 @@
 1. 工具准备
     - Git 版本管理
     - CMake 依赖管理
-    - Gcc 编译器
-    - Clion/vscode/atom 编辑器
+    - GCC 编译器
+    - Clion/VSCode/Atom 编辑器
     - Postman 模拟客户端
-    - MySQL(navicat) 数据库
+    - MySQL 数据库
     - Docker 部署
 2. 常用知识
     - Linux
@@ -21,6 +21,9 @@
         - 行为型
 4. 开源项目
     - LevelDB 存储引擎
+    - Etcd 服务发现
+    - RocksDB 存储引擎
+    - InfluxDB 时序数据库
     - MongoDB 文档型数据库
     - [Workflow](https://github.com/sogou/workflow) (搜狗)
     - [Libhv](https://github.com/ithewei/libhv) (高性能Web服务器)
