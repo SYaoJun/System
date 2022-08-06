@@ -10,8 +10,9 @@ link_directories(${ROOT_DIR}/lib)
 # 添加源文件
 aux_source_directory(${ROOT_DIR}/src DIR_SRCS)
 aux_source_directory(${ROOT_DIR}/src/gtest DIR_GTEST)
+aux_source_directory(${ROOT_DIR}/src/gmock DIR_GMOCK)
 
 # 需要编译的源文件
-add_executable(server  ${DIR_GTEST} ${DIR_SRCS})
+add_executable(server  ${DIR_GTEST} ${DIR_SRCS} ${DIR_GMOCK})
 # 链接外部库
-target_link_libraries(server libgtest.a libgtest_main.a)
+target_link_libraries(server libgtest.a libgtest_main.a libgmock.a libgmock_main.a)
