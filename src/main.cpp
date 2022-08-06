@@ -3,19 +3,18 @@
 #include <set>
 #include <map>
 #include <vector>
-
+#include <unistd.h>
+#include <fcntl.h>
 using namespace std;
-int main() {
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        if(x==1){
-            cout<<2<<endl;
-            continue;
-        }
-        cout<<x/3+(x%3!=0)<<endl;
-    }
-    return 0;
+#include <gtest/gtest.h>
+
+int add(int a,int b){
+    return a+b;
+}
+TEST(testCase,test0){
+    EXPECT_EQ(add(2,3),5);
+}
+int main(int argc,char **argv){
+    testing::InitGoogleTest(&argc,argv);
+    return RUN_ALL_TESTS();
 }
