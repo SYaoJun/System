@@ -1,17 +1,48 @@
-## C/C++工程项目大纲
+## C/C++项目实战大纲
 1. 工具准备
     - Git 版本管理
-    - CMake 依赖管理
+    - CMake 依赖管理(#1)
     - GCC 编译器
-    - Clion/VSCode/Atom 编辑器
+    - Clion/VSCode/Atom 编辑器(#1)
     - Postman 模拟客户端
-    - MySQL 数据库
-    - Docker 部署
+    - MySQL 数据库(#2)
+    - Docker 部署(#2)
+    - Google Test 单元测试(#3)
 2. 常用知识
-    - Linux
+    - Linux/OS
+      - 常用命令
+        - mkdir
+        - grep
+        - tail
+      - 多进程
+        - fork
+        - exec
+        - pipe
+        - mmap
+      - 多线程
+        - 互斥锁 mutex
+        - 条件变量 condition variable
+        - 信号量 semaphore
+        - 信号 signal
     - C/C++
+      - 指针
+      - 多态
+      - 构造/析构
+      - malloc/free
+      - new/delete
     - STL
+      - vector
+      - map
+      - set
+      - queue
     - C++11/14/17/20
+      - shared_ptr
+      - static_cast
+      - move
+      - tuple
+      - variant
+      - override
+      - lambda
 3. 热身
     - 设计模式
         - 创建型
@@ -36,3 +67,4 @@
     1. 《操作系统：设计与实现》南京大学，[蒋炎岩](https://www.bilibili.com/video/BV1Cm4y1d7Ur?spm_id_from=333.999.0.0&vd_source=e9f1ced96b267a4bc02ec41ca31d850a)
     2. CMU15-445/645 数据库设计
     3. MIT6.824  分布式设计
+7. 面试经历分享
