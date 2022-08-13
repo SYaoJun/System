@@ -3,7 +3,7 @@
     - Git 版本管理
     - CMake 依赖管理(#1)
     - GCC 编译器
-    - Makefile 编译规则
+    - Makefile 编译规则(#4)
     - Clion/VSCode/Atom 编辑器(#1)
     - Postman 模拟客户端
     - MySQL 数据库(#2)
@@ -15,7 +15,7 @@
         - mkdir
         - grep
         - tail
-      - 多进程
+      - 多进程(#4)
         - fork
         - exec
         - pipe

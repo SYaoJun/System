@@ -40,6 +40,7 @@ int main() {
         // wait(NULL); //NULL不关心子进程退出的状态
         // waitpid回收指定进程
         // argv_1: pid指定子进程，-1任意子进程
+        // argv_2: 子进程退出的状态，出参。
         // argv_3: WNOHANG不阻塞，通过轮询回收，回收成功返回子进程pid，回收失败返回0，出错返回-1
         int reclaim_num = 0;
         do{

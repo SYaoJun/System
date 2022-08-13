@@ -1,4 +1,8 @@
 all: hello world
+compute: compute.cpp
+	g++ compute.cpp -o compute -std=c++17
+multi-thread: multi-thread.cpp
+	g++ multi-thread.cpp -o multi-thread -std=c++17
 multi-process: multi-process.cpp
 	g++ multi-process.cpp -o multi-process -std=c++17
 chrono_test: chrono_test.cpp
