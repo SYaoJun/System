@@ -11,47 +11,19 @@
     - Google Test 单元测试(#3)
 2. 常用知识
     - Linux/OS
-      - 常用命令
-        - mkdir
-        - grep
-        - tail
       - 多进程(#4)
-        - fork
-        - exec
-        - pipe
-        - mmap
-      - 多线程
-        - 互斥锁 mutex
-        - 条件变量 condition variable
-        - 信号量 semaphore
-        - 信号 signal
+      - 多线程（#5）
     - C/C++
-      - 指针
-      - 多态
-      - 构造/析构
-      - malloc/free
-      - new/delete
     - STL
-      - vector
-      - map
-      - set
-      - queue
-    - C++11/14/17/20
-      - shared_ptr
-      - static_cast
-      - move
-      - tuple
-      - variant
-      - override
-      - lambda
-3. 热身
-    - 设计模式
-        - 创建型
-            1. 单例模式
-            2. 工厂模式
-        - 结构型
-        - 行为型
+    - C++11/14/17/20/23
+3. C++Web服务器（初学版）
+      1. socket
+      2. epoll
+      3. HTTP
+      4. 线程池
+      5. 定时器
 4. 开源项目
+    - [TinyWebServer](https://github.com/qinguoyi/TinyWebServer)
     - LevelDB 存储引擎
     - Etcd 服务发现
     - RocksDB 存储引擎
