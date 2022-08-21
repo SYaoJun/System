@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <stdlib.h>
-void process_func(){
+#include <signal.h>
+void process_func(int x){
     printf("I catch a signal. ha ha ha...\n");
 }
 int main(){
@@ -12,7 +13,7 @@ int main(){
     // new_id传入
     // old_it传出
     // 定时为：5秒后开始，间隔3秒一次
-    new_it.it_value.tv_sec = 5; //定时长度
+    new_it.it_value.tv_sec = 1; //定时长度
     new_it.it_value.tv_usec = 0; //微秒
 
     new_it.it_interval.tv_sec = 3; //周期定时
@@ -22,7 +23,6 @@ int main(){
         perror("setitimer error");
         exit(1);
     }
-    return old_it.it_value.tv_sec;
     while (1);
     return 0;
 }

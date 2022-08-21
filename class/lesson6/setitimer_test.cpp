@@ -20,7 +20,7 @@ int my_alarm(int sec){
     return old_it.it_value.tv_sec;
 }
 int main(){
-    my_alarm(1); //计时1s 到时后内核发送一个sigalarm信号终止
+    my_alarm(1); //计时1s 到时后内核发送一个sigalrm信号终止
     for(int i = 0;;i++) printf("%d\n", i);
     return 0;
 }
