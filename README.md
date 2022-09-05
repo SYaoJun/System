@@ -17,11 +17,11 @@
     - STL
     - C++11/14/17/20/23
 3. C++Web服务器（初学版）
-      1. socket
-      2. epoll
+      1. socket(#6)
+      2. epoll(#6)
       3. HTTP
       4. 线程池
-      5. 定时器
+      5. 定时器(#6)
 4. 开源项目
     - [TinyWebServer](https://github.com/qinguoyi/TinyWebServer)
     - LevelDB 存储引擎
@@ -34,10 +34,9 @@
 ### Offer收割机必备
 5. 推荐项目
     1. Raft 共识算法
-    2. [Tinykv](https://github.com/talent-plan/tinykv) KV存储引擎(PingCAP)
+    2. [Tinykv](https://github.com/talent-plan/tinykv) KV存储引擎(PingCAP)(#7)
     3. Tinysql 分布式SQL(PingCAP)
 6. 推荐课程
     1. 《操作系统：设计与实现》南京大学，[蒋炎岩](https://www.bilibili.com/video/BV1Cm4y1d7Ur?spm_id_from=333.999.0.0&vd_source=e9f1ced96b267a4bc02ec41ca31d850a)
-    2. CMU15-445/645 数据库设计
+    2. CMU15-445/645 数据库设计 (#7)
     3. MIT6.824  分布式设计
-7. 面试经历分享
