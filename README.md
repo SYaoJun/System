@@ -1,14 +1,16 @@
 ## C/C++项目实战大纲
 1. 工具准备
-    - Git 版本管理
+    - Git 代码管理
     - CMake 依赖管理(#1)
-    - GCC 编译器
+    - GCC/G++/Clang/Llvm 编译器
     - Makefile 编译规则(#4)
-    - Clion/VSCode/Atom 编辑器(#1)
-    - Postman 模拟客户端
-    - MySQL 数据库(#2)
-    - Docker 部署(#2)
+    - Clion/VSCode/Atom/Sublime 编辑器(#1)
+    - MySQL/PostgreSQL/Oracle/Redis/ElasticSearch 数据库(#2)
+    - Docker/K8s 部署编排(#2)
     - Google Test 单元测试(#3)
+    - Gdb/Valgrind/Cppcheck 调试和检查工具
+    - Prometheus/Grafana 监控
+    - Postman 模拟HTTP客户端
 2. 常用知识
     - C/C++11/23 
     - STL标准库
