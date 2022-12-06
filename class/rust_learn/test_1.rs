@@ -1,8 +1,3 @@
-//https://geektutu.com/post/quick-rust.html
-/*
-rustc --version
-cargo --version
-*/
 fn main() {
     let a: i64 = 12;
     let b: bool = false;
