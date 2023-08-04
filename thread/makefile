@@ -11,7 +11,6 @@ fork_test: fork_test.cpp
 	g++ fork_test.cpp -o fork_test -std=c++17
 hello: hello.cpp
 	g++ hello.cpp -o xxx
-
 world: world_test.go
 	go test -v world_test.go
 
