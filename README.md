@@ -9,13 +9,25 @@ make pipe_test
 ./pipe_test
 ```
 ## Tutorial
-- std::thread
 - fork()
+- exec()
 - pipe()
+- dup2()
+- select()
+- poll()
 - epoll()
 - signal()
 - mmap()
+- pthread()
 
+## Modern C++
+- std::thread()
+- condition_variable()
+- mutex()
+- scoped_lock()
+- unique_ptr
+- dynamic_cast()
+- atomic()
 ## Build Tools
 - makefile
 - CMake
