@@ -1,44 +1,35 @@
-#include <iostream>
-#include <condition_variable>
-#include <thread>
+#include <iostream>           
+#include <thread>            
+#include <mutex>             
+#include <condition_variable> 
+#include <vector>
 #include <chrono>
-
+std::mutex mtx;
 std::condition_variable cv;
-std::mutex cv_m; 
-int i = 0;
-
-void waits()
-{
-    std::unique_lock<std::mutex> lk(cv_m);
-    std::cerr << "Waiting... \n";
-    cv.wait(lk, []{return i == 1;});
-    std::cerr << "...finished waiting. i == 1\n";
+bool ready = false;
+ 
+void print_id (int id) {
+    std::unique_lock<std::mutex> lck(mtx);
+    cv.wait_for(lck, std::chrono::seconds(1), []{return ready;});
+    std::cout << "thread " << id << '\n';
 }
-
-void signals()
-{
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    {
-        std::lock_guard<std::mutex> lk(cv_m);
-        std::cerr << "Notifying...\n";
-    }
-    cv.notify_all();
-
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-
-    {
-        std::lock_guard<std::mutex> lk(cv_m);
-        i = 1;
-        std::cerr << "Notifying again...\n";
-    }
+ 
+void go() {
+    //修改ready标记，并通知打印线程工作
+    std::unique_lock<std::mutex> lck(mtx);
+    ready = true;
     cv.notify_all();
 }
-
-int main()
-{
-    std::thread t1(waits), t2(waits), t3(waits), t4(signals);
-    t1.join();
-    t2.join();
-    t3.join();
-    t4.join();
+ 
+int main (){
+    std::vector<std::thread> threads(10);
+    // 创建10个线程，每个线程当ready标记为真时打印自己的id号
+    for (int i=0; i<10; ++i)
+        threads[i] = std::thread(print_id,i);
+ 
+    std::cout << "10 threads ready to race...\n";
+    go();                    
+    for (auto& th : threads) th.join();
+ 
+    return 0;
 }

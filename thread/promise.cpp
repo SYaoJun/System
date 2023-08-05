@@ -2,8 +2,6 @@
 #include <string>
 #include <thread>
 #include <future>
-#include <chrono>
-
 
 void gettime(){
     auto currentTime = std::chrono::system_clock::now();
@@ -31,6 +29,7 @@ int dosomething(std::string file) {
     return 404;
 }
 
+
 void interact() {
     std::string name;
     std::cout<<"please enter you name:";
@@ -38,14 +37,20 @@ void interact() {
     std::cout << "Hi, " << name<< std::endl;
     gettime();
 }
-
 int main() {
-	// std::future<int> fret = std::async(dosomething,"oldwang"); 
-    std::future<int> fret = std::async([&] {
-        return dosomething("hello.zip"); 
+    std::promise<int> pret;
+    std::thread t1([&] {
+        auto ret = dosomething("hello.zip");
+        // 设置返回值
+        pret.set_value(ret); 
     });
+    // 获取future对象
+    std::future<int> fret = pret.get_future();
+
     interact();
-    int ret = fret.get(); // 阻塞等待获取
+    int ret = fret.get(); // 等待并获取返回值
     std::cout << "Download result: " << ret << std::endl;
+
+    t1.join();
     return 0;
 }

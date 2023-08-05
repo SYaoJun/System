@@ -8,7 +8,16 @@ cd pipe
 make pipe_test
 ./pipe_test
 ```
-## Tutorial
+## Finished
+- thread
+    - future
+    - promise
+    - condition_variable
+    - thread
+    - mutex
+    - unique_lock
+
+## TODO
 - fork()
 - exec()
 - pipe()

@@ -16,5 +16,16 @@ world: world_test.go
 
 thread_v1: thread_v1.cpp
 	g++ thread_v1.cpp -o thread_v1 -std=c++17
+mutex: mutex.cpp
+	g++ mutex.cpp -o mutex -std=c++17
+condition_variable: condition_variable.cpp
+	g++ condition_variable.cpp -o condition_variable -std=c++17
+unique_lock: unique_lock.cpp
+	g++ unique_lock.cpp -o unique_lock -std=c++17
+
+future: future.cpp
+	g++ future.cpp -o future -std=c++17
+promise: promise.cpp
+	g++ promise.cpp -o promise -std=c++17
 clean:
 	rm *.o main 
