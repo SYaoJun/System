@@ -1,18 +1,14 @@
 #include <iostream>
 #include <thread>
 
-using namespace std;
-
 void output(int i) {
-	cout << i << endl;
+	std::cout << i << std::endl;
 }
 
 int main() {
-	for (uint8_t i = 0; i < 4; i++) {
-		thread t(output, i);
-		t.detach();	
-	}
-		
-	getchar();
+	int x = 100;
+	std::thread t1(output, x);
+    std::thread::id t1_id = t1.get_id();
+	t1.join();
 	return 0;
 }

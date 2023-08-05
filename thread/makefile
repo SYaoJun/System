@@ -14,5 +14,7 @@ hello: hello.cpp
 world: world_test.go
 	go test -v world_test.go
 
+thread_v1: thread_v1.cpp
+	g++ thread_v1.cpp -o thread_v1 -std=c++17
 clean:
 	rm *.o main 
