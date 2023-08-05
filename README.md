@@ -16,7 +16,9 @@ make pipe_test
     - thread
     - mutex
     - unique_lock
-
+- modern_cpp
+    - unordered_map_hash
+    - unordered_map_hash_v2
 ## TODO
 - fork()
 - exec()
