@@ -1,7 +1,3 @@
-//
-// Created by 姚军 on 2022/8/13.
-//
-
 #include <iostream>
 #include <cmath>
 #include <mutex>
