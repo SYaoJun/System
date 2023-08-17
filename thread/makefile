@@ -28,4 +28,6 @@ future: future.cpp
 promise: promise.cpp
 	g++ promise.cpp -o promise -std=c++17
 clean:
-	rm *.o main 
+	rm -rf promise future unique_lock condition_variable mutex thread_v1
+
+.PHONY: all clean
