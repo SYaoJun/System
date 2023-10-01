@@ -1,0 +1,9 @@
+Language: Cpp
+BasedOnStyle: Google
+DerivePointerAlignment: false
+PointerAlignment: Right
+ColumnLimit: 79
+IndentWidth: 4
+UseTab: Never
+IncludeBlocks: Preserve
+SpaceBeforeFunctionOpen: Always
