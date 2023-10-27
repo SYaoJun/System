@@ -1,9 +1,11 @@
+/*
+单链表的C语言实现
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 typedef struct ListNode {
-    struct ListNode *prev;
     struct ListNode *next;
     int value;
 } ListNode;
