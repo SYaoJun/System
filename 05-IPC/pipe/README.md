@@ -1,7 +1,6 @@
 ## 进程通信
 - pipe
 - fifo
-- mmap
 ## pipe实践
 - 当前进程为T，3个子进程ABC
 - 两个管道

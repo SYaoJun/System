@@ -17,33 +17,42 @@
 void A(int pipeAB[PIPE_READ_AND_WRITE], int pipeAC[PIPE_READ_AND_WRITE]) {
     close(pipeAB[PIPE_READ]);
     close(pipeAC[PIPE_READ]);
+    // 把标准输出设置为管道AB的写端
     dup2(pipeAB[PIPE_WRITE], STDOUT_FILENO);
+    // 把标准错误设置为管道AC的写端
     dup2(pipeAC[PIPE_WRITE], STDERR_FILENO);
-
-    perror("gggggggggggggg\n");
-    execlp("date", "date", NULL);
+    close(pipeAB[PIPE_WRITE]);
+    close(pipeAC[PIPE_WRITE]);
+    fprintf(stderr, "on process A, write info into stderr.\n");
+    fprintf(stdout, "on process A, write info into stdout.\n");
+    fflush(stderr);
+    fflush(stdout);
+    exit(0);
 }
 
 void B(int pipeAB[PIPE_READ_AND_WRITE], int pipeAC[PIPE_READ_AND_WRITE]) {
     close(pipeAB[PIPE_WRITE]);
     close(pipeAC[PIPE_READ]);
     close(pipeAC[PIPE_WRITE]);
+    // 把标准输入设置为从AB的读端读入数据，把AB读端复制到标准输入，操作标准输入就是操作AB读端
     dup2(pipeAB[PIPE_READ], STDIN_FILENO);
     close(pipeAB[PIPE_READ]);
 
     char buf[1024];
+    memset(buf, 0, sizeof(buf));
     read(STDIN_FILENO, buf, 1024);
     printf("stdout = %s", buf);
-
     exit(0);
 }
 void C(int pipeAB[PIPE_READ_AND_WRITE], int pipeAC[PIPE_READ_AND_WRITE]) {
     close(pipeAB[PIPE_READ]);
     close(pipeAB[PIPE_WRITE]);
     close(pipeAC[PIPE_WRITE]);
+    // 把标准输入设置为从AC的读端读入数据
     dup2(pipeAC[PIPE_READ], STDIN_FILENO);
     close(pipeAC[PIPE_READ]);
     char buf[1024];
+    memset(buf, 0, sizeof(buf));
     read(STDIN_FILENO, buf, 1024);
     printf("stderr = %s", buf);
     exit(0);
