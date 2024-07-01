@@ -12,8 +12,8 @@
 /*
 1.创建套接字socket()
 2.调用connect函数与服务器连接
-3.从键盘write数据
-4.从服务器read数据
+3.从键盘输入数据
+4.从服务器读取数据
 5.close
 */
 int main(void){
