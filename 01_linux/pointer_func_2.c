@@ -18,8 +18,10 @@ void init(){
 }
 
 int main(){
+    init();
     for(int i = 0; i < 2; i++){
-        callback_array[i](99, 11);
+       int res =  callback_array[i](99, 11);
+       printf("res = %d\n", res);
     }
     return 0;
 }

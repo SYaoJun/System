@@ -4,6 +4,7 @@
 typedef bool (*send_data_t)(char * data, bool is_sync);
 typedef bool (*recv_data_t)(char * data);
 bool tcp_send_data(char *msg_data, bool is_sync){
+    puts("send data");
     return true;
 }
 
