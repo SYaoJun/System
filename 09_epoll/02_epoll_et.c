@@ -39,6 +39,7 @@ void lt(struct epoll_event *events, int number, int epollfd, int listenfd) {
     for (int i = 0; i<number; i++) {
         int sockfd = events[i].data.fd;
         if (sockfd == listenfd) {
+            puts("listen fd");
             struct sockaddr_in client_address;
             socklen_t client_addrlength = sizeof(client_address);
             int connfd = accept(listenfd, (struct sockaddr *)&client_address,
@@ -113,6 +114,7 @@ int main(int argc, char *argv[]) {
     inet_pton(AF_INET, ip,&address.sin_addr);
     address.sin_port = htons(port);
     int listenfd = socket(PF_INET, SOCK_STREAM, 0);
+
     assert(listenfd >= 0);
     ret = bind(listenfd, (struct sockaddr *)&address, sizeof(address));
     assert(ret != -1);
@@ -129,9 +131,9 @@ int main(int argc, char *argv[]) {
             printf("epoll failure\n");
             break;
         }
-        // lt(events, ret, epollfd, listenfd); /*使用LT模式*/
+        //lt(events, ret, epollfd, listenfd); /*使用LT模式*/
 
-        et(events,ret,epollfd, listenfd);/*使用ET模式*/
+         et(events,ret,epollfd, listenfd);/*使用ET模式*/
     }
     close(listenfd);
     return 0;
