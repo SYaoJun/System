@@ -6,9 +6,15 @@
 #include <ctype.h>
 
 #define SERV_IP "127.0.0.1"
-#define SERV_PORT 6670
 
-int main(void){
+int main(int argc, char** argv){
+    int server_port = 0;
+    if(argc < 2 || argc > 2){
+        puts("usage: ./a.out port");
+        return 0;
+    }
+    server_port = atoi(argv[1]);
+
     int lfd, cfd;
     char buf[BUFSIZ], client_IP[BUFSIZ]; //4k或者8k
     struct sockaddr_in serv_addr, clie_addr;
@@ -18,7 +24,7 @@ int main(void){
     lfd = socket(AF_INET, SOCK_STREAM, 0); //创建套接字
 
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(SERV_PORT);
+    serv_addr.sin_port = htons(server_port);
     inet_pton(AF_INET, SERV_IP, &serv_addr.sin_addr.s_addr); //点分十进制转网络字节序
 
     // 绑定端口 类似于将上课的A5教室定下来，而客户端就是学生，学生需要知道教室A5
