@@ -1,1 +1,9 @@
 # 多进程
+- fork
+- exec*
+- wait
+- waitpid
+- dup2
+- pipe
+- signal
+- sigaction

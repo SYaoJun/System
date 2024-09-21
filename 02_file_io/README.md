@@ -1,6 +1,10 @@
 # 文件IO
-
 - open
 - read
 - write
 - fcntl
+- remove
+- close
+- lseek
+- pwrite
+- pread

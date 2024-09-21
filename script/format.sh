@@ -1,0 +1,1 @@
+clang-format -i ../07-signal/five_children.c
