@@ -23,14 +23,10 @@ void bubbleSort(int arr[], int n, compare_func_t compare) {
 }
 
 // 升序比较函数
-int ascendingCompare(int a, int b) {
-    return a > b;
-}
+int ascendingCompare(int a, int b) { return a > b; }
 
 // 降序比较函数
-int descendingCompare(int a, int b) {
-    return a < b;
-}
+int descendingCompare(int a, int b) { return a < b; }
 
 // 测试示例
 int main() {

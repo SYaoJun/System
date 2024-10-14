@@ -1,43 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
-#include <unistd.h>
-#include <sys/types.h>
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <sys/un.h>
+#include <unistd.h>
 
 #define UNIXSTR_PATH "/tmp/unix.str"
 #define LISTENQ 5
 #define BUFFER_SIZE 256
 
-int main(void)
-{
-	int sockfd;
-	struct sockaddr_un servaddr;
+int main(void) {
+    int sockfd;
+    struct sockaddr_un servaddr;
 
-	sockfd = socket(AF_LOCAL, SOCK_STREAM, 0);
-	
-	bzero(&servaddr, sizeof(servaddr));
-	servaddr.sun_family = AF_LOCAL;
-	strcpy(servaddr.sun_path, UNIXSTR_PATH);
+    sockfd = socket(AF_LOCAL, SOCK_STREAM, 0);
 
-	connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
+    bzero(&servaddr, sizeof(servaddr));
+    servaddr.sun_family = AF_LOCAL;
+    strcpy(servaddr.sun_path, UNIXSTR_PATH);
 
-	char buf[BUFFER_SIZE];
+    connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
 
-	while(1)
-	{
-		bzero(buf, sizeof(BUFFER_SIZE));
-		printf(">> ");
-		if(fgets(buf, BUFFER_SIZE, stdin) == NULL)
-		{
-			break;
-		}
-		write(sockfd, buf, strlen(buf));
-	}
+    char buf[BUFFER_SIZE];
 
-	close(sockfd);
-	
-	return 0;
+    while (1) {
+        bzero(buf, sizeof(BUFFER_SIZE));
+        printf(">> ");
+        if (fgets(buf, BUFFER_SIZE, stdin) == NULL) {
+            break;
+        }
+        write(sockfd, buf, strlen(buf));
+    }
+
+    close(sockfd);
+
+    return 0;
 }
-

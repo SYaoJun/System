@@ -70,8 +70,8 @@ int main() {
     add_node(101, list);
     add_node(102, list);
     add_node(103, list);
-    iterate_list(list); // 101 102 103
+    iterate_list(list);  // 101 102 103
     remove_node(102, list);
-    iterate_list(list); // 101 103
+    iterate_list(list);  // 101 103
     return 0;
 }

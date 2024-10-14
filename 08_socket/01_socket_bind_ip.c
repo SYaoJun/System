@@ -1,9 +1,9 @@
+#include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <arpa/inet.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
 int main() {
     int server_fd;
@@ -20,8 +20,8 @@ int main() {
     // 绑定 socket 到特定的 IP 地址和端口
     address.sin_family = AF_INET;
     // address.sin_addr.s_addr = INADDR_ANY;  // 监听主机上的所有IP
-    address.sin_addr.s_addr = inet_addr("127.0.0.1"); // 只监听 127.0.0.1
-    address.sin_port = htons(8080); // 端口号
+    address.sin_addr.s_addr = inet_addr("127.0.0.1");  // 只监听 127.0.0.1
+    address.sin_port = htons(8080);                    // 端口号
 
     if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
         perror("bind failed");
@@ -40,7 +40,8 @@ int main() {
 
     // 接受客户端连接
     int new_socket;
-    if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen)) < 0) {
+    if ((new_socket = accept(server_fd, (struct sockaddr *)&address,
+                             (socklen_t *)&addrlen)) < 0) {
         perror("accept");
         close(server_fd);
         exit(EXIT_FAILURE);
