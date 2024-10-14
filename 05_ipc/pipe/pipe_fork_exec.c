@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 #define READ_END 0
 #define WRITE_END 1
@@ -27,7 +27,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    if (pid == 0) { // 子进程
+    if (pid == 0) {  // 子进程
         // 重定向标准输出到 stdout_pipe
         close(stdout_pipe[READ_END]);
         dup2(stdout_pipe[WRITE_END], STDOUT_FILENO);
@@ -40,22 +40,24 @@ int main() {
 
         // 执行命令
         execlp("your_command", "your_command", "arg1", "arg2", (char *)NULL);
-        perror("execlp"); // 如果execlp失败
+        perror("execlp");  // 如果execlp失败
         exit(EXIT_FAILURE);
-    } else { // 父进程
+    } else {  // 父进程
         close(stdout_pipe[WRITE_END]);
         close(stderr_pipe[WRITE_END]);
 
         // 读取标准输出
         char buffer[128];
         ssize_t count;
-        while ((count = read(stdout_pipe[READ_END], buffer, sizeof(buffer) - 1)) > 0) {
+        while ((count = read(stdout_pipe[READ_END], buffer,
+                             sizeof(buffer) - 1)) > 0) {
             buffer[count] = '\0';
             printf("Standard Output: %s", buffer);
         }
 
         // 读取标准错误
-        while ((count = read(stderr_pipe[READ_END], buffer, sizeof(buffer) - 1)) > 0) {
+        while ((count = read(stderr_pipe[READ_END], buffer,
+                             sizeof(buffer) - 1)) > 0) {
             buffer[count] = '\0';
             fprintf(stderr, "Standard Error: %s", buffer);
         }
@@ -67,7 +69,8 @@ int main() {
         int status;
         waitpid(pid, &status, 0);
         if (WIFEXITED(status)) {
-            printf("Child process exited with status %d\n", WEXITSTATUS(status));
+            printf("Child process exited with status %d\n",
+                   WEXITSTATUS(status));
         } else {
             printf("Child process did not exit successfully\n");
         }

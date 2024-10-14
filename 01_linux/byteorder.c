@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 void byteorder() {
     union {
         short value;

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <signal.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -16,4 +15,3 @@ int main() {
     printf("EOF detected. Exiting...\n");
     return 0;
 }
-

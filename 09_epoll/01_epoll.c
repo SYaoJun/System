@@ -1,11 +1,11 @@
+#include <arpa/inet.h>
+#include <errno.h>
+#include <netinet/in.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
 #include <sys/epoll.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 
 #define MAX_EVENTS 10
 #define BACKLOG 10
@@ -18,7 +18,8 @@ int create_and_bind(const char *ip, int port) {
     }
 
     int yes = 1;
-    if (setsockopt(listen_fd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) == -1) {
+    if (setsockopt(listen_fd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes)) ==
+        -1) {
         perror("setsockopt failed");
         close(listen_fd);
         return -1;
@@ -48,7 +49,8 @@ int create_and_bind(const char *ip, int port) {
 void handle_new_connection(int epoll_fd, int listen_fd) {
     struct sockaddr_in client_addr;
     socklen_t client_addr_len = sizeof(client_addr);
-    int client_fd = accept(listen_fd, (struct sockaddr *)&client_addr, &client_addr_len);
+    int client_fd =
+        accept(listen_fd, (struct sockaddr *)&client_addr, &client_addr_len);
     if (client_fd == -1) {
         perror("accept failed");
         return;
@@ -84,8 +86,9 @@ int main() {
     }
 
     // 监听多个IP地址
-    const char *ips[] = {"192.168.1.100", "192.168.1.101"}; // 要监听的IP地址列表
-    int ports[] = {8080, 8081}; // 对应的端口列表
+    const char *ips[] = {"192.168.1.100",
+                         "192.168.1.101"};  // 要监听的IP地址列表
+    int ports[] = {8080, 8081};             // 对应的端口列表
 
     for (int i = 0; i < sizeof(ips) / sizeof(ips[0]); ++i) {
         int listen_fd = create_and_bind(ips[i], ports[i]);
