@@ -6,7 +6,7 @@ int main(){
     setvbuf(stdout, NULL, _IONBF, 0);
     printf("A\n");
     // 父进程 > 0, 子进程 = 0
-    if(fork() && fork()){ 
+    if(fork() && fork()){ //  创建了两个子进程
         printf("D\n");
     }
     // 1.创建了几个子进程  2
@@ -15,6 +15,3 @@ int main(){
     sleep(100);
     return 0;
 }
-
-
-// 
