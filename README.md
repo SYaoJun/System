@@ -52,6 +52,7 @@
 - 并行优化
 - 文件系统FUSE
 - DPDK
+- SPDK
 - NVMe SSD
 
 ### 4. 工具
