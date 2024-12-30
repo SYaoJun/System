@@ -1,8 +1,21 @@
 # 解析CSV文件
 ## 目标
-- 掌握getopt和getlong_opt的用法
+- 掌握getopt的用法
 - 掌握fgets读取文件
 - 使用malloc分配内存
+## 命令行参数
+```c
+Usage: ./select -c NCOLS [-n NRECS] COL1 COL2 COL3 ...
+```
+
+`./select`：可执行程序的名称。
+
+`-c NCOLS`：要从输入 CSV 中读取的列数。
+
+`[-n NRECS]`：可选。要解析的最大行数。
+
+`COL1 COL2 COL3 ...`：要输出的列的索引（索引从1开始）。
+
 ## Task 1: 解析命令行参数
 - 第一行是状态栏。
 - 列的索引从1开始编号。
