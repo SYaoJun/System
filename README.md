@@ -71,12 +71,13 @@
 
 ### 5. 异步I/O
 - 非阻塞I/O
-- I/O多路复用epoll
-- libaio
-- Boost.Asio
+- I/O多路复用-select/poll/epoll
+- 基于glibc异步I/O
+- 基于libaio的异步I/O
+- Boost.Asio-C++
 - promise/future(C++11)
 - async/await(Rust)
-- io_uring
+- io_uring-Linux 5.1
 - 协程(C++20)
 
 ##  Labs
@@ -85,7 +86,7 @@
 - 文件I/O（500行左右)
 - 多进程系统（800行左右）
 - 多线程系统（1000行左右)
-
+ 
 ## Project(TBA)
 - [Sherman](https://github.com/thustorage/Sherman)
 - [ShiftLock](https://github.com/thustorage/shiftlock)
