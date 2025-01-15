@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 #define SERV_IP "127.0.0.1"
-#define SERV_PORT 6670
+#define SERV_PORT 8080
 /*
 1.创建套接字socket()
 2.调用connect函数与服务器连接
@@ -35,7 +35,7 @@ int main(void) {
 
     char buf[BUFSIZ];
     int n;
-    while (1) {
+    // while (1) {
         // 3/4.
         printf("please input a string: ");
         fgets(buf, sizeof(buf), stdin);  //读一行 但是会自动加一个换行符
@@ -45,10 +45,11 @@ int main(void) {
             buf[len - 1] = '\0';
         }
         write(cfd, buf, strlen(buf));  //写入到文件描述符 写缓冲区
-        n = read(cfd, buf, sizeof(buf));  //返回从服务器读出的字节数
-        write(STDOUT_FILENO, buf, n);     //把读入的数据写到屏幕
-    }
+        // n = read(cfd, buf, sizeof(buf));  //返回从服务器读出的字节数
+        // write(STDOUT_FILENO, buf, n);     //把读入的数据写到屏幕
+    // }
     // 5.
-    close(cfd);
+    shutdown(cfd, SHUT_WR);
+    sleep(100);
     return 0;
 }
