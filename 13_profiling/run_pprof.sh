@@ -1,0 +1,1 @@
+gcc -o pprof_test pprof_test.c -lprofiler -L/opt/homebrew/lib -I/opt/homebrew/include
